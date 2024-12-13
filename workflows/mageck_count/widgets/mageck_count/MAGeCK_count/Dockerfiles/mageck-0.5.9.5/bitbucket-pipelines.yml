@@ -1,0 +1,49 @@
+# This is a sample build configuration for Python.
+# Check our guides at https://confluence.atlassian.com/x/x4UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: python:3.7.3
+
+options:
+  docker: true
+
+pipelines:
+  default:
+    - step:
+        script: # Modify the commands below to build your repository.
+          - python setup.py sdist
+    - step:
+        script: # test the demo 1-4
+          - pip install numpy
+          - pip install scipy
+          - python setup.py install 
+          - cd demo/demo1
+          - bash run.sh
+          - cd ../demo2
+          - bash runmageck.sh
+          - cd ../demo3
+          - bash run.sh
+          - cd ../demo4
+          - bash run.sh
+          - cd ../demo5
+          - bash run.sh
+    - step:
+        size: 2x
+        script:
+          # build the Docker image
+          - export IMAGE_NAME=davidliwei/mageck:$BITBUCKET_COMMIT
+          - docker build -t $IMAGE_NAME .
+          - docker image tag $IMAGE_NAME davidliwei/mageck:latest
+          # authenticate with Docker Hub
+          - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD 
+          - docker push $IMAGE_NAME
+          # build another image with current commit
+          #- export IMAGE_NAME=davidliwei/mageck:$BITBUCKET_COMMIT
+          #- docker build -t $IMAGE_NAME .
+          #- docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD 
+          #- docker push $IMAGE_NAME
+        services:
+          - docker
+
+
