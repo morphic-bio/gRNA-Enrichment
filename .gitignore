@@ -1,0 +1,49 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore output files
+*.out
+*.o
+
+# Ignore compiled files
+*.class
+*.exe
+*.dll
+
+# Ignore package files
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Ignore main directory's .txt files
+counts.txt
+GSE277069.count-sums.20241213.txt
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
