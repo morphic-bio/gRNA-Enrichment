@@ -11,16 +11,16 @@ from DockerClient import DockerClient
 from BwBase import OWBwBWidget, ConnectionDict, BwbGuiElements, getIconName, getJsonName
 from PyQt5 import QtWidgets, QtGui
 
-class OWMAGeCK_count(OWBwBWidget):
-    name = "MAGeCK_count"
-    description = "MAGeCK count, collect read counts from fastq files"
+class OWMAGeCK_test(OWBwBWidget):
+    name = "MAGeCK_test"
+    description = "MAGeCK test, sgRNA and gene ranking"
     priority = 10
     icon = getIconName(__file__,"mageckgithub.png")
     want_main_area = False
     docker_image_name = "mageck"
     docker_image_tag = "0.5.9.5_debian13"
-    inputs = [("listSeq",str,"handleInputslistSeq"),("fastq",str,"handleInputsfastq"),("countTable",str,"handleInputscountTable"),("fastq2",str,"handleInputsfastq2"),("outputDir",str,"handleInputsoutputDir"),("outputPrefix",str,"handleInputsoutputPrefix")]
-    outputs = [("File",str),("outputDir",str),("outputPrefix",str)]
+    inputs = [("outputDir",str,"handleInputsoutputDir"),("countTable",str,"handleInputscountTable"),("treatmentId",str,"handleInputstreatmentId"),("day0Label",str,"handleInputsday0Label"),("outputPrefix",str,"handleInputsoutputPrefix")]
+    outputs = [("outputDir",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
     exportGraphics=pset(False)
@@ -28,41 +28,39 @@ class OWMAGeCK_count(OWBwBWidget):
     triggerReady=pset({})
     inputConnectionsStore=pset({})
     optionsChecked=pset({})
-    listSeq=pset(None)
-    fastq=pset([])
     outputDir=pset(None)
     countTable=pset(None)
+    treatmentId=pset([])
+    day0Label=pset(None)
+    controlId=pset([])
+    paired=pset(False)
     normMethod=pset(None)
+    geneTestFdrThreshold=pset(0.25)
+    adjustMethod=pset(None)
+    varianceEstimationSamples=pset(None)
+    sortCriteria=pset("neg")
+    removeZero=pset("both")
+    removeZeroThreshold=pset(0)
+    pdfReport=pset(False)
+    geneLfcMethod=pset("median")
+    outputPrefix=pset(['sample1'])
     controlSgrna=pset(None)
     controlGene=pset(None)
-    sampleLabel=pset([])
-    outputPrefix=pset(['sample1'])
-    unmappedToFile=pset(False)
+    normCountsToFile=pset(False)
+    skipGene=pset(None)
     keepTmp=pset(False)
-    fastq2=pset(None)
-    countPair=pset("False")
-    trim5=pset(None)
-    sgrnaLen=pset(20)
-    countN=pset(False)
-    reverseComplement=pset(False)
-    pdfReport=pset(False)
-    day0Label=pset(None)
+    additionalRraParameters=pset(None)
     def __init__(self):
         super().__init__(self.docker_image_name, self.docker_image_tag)
-        with open(getJsonName(__file__,"MAGeCK_count")) as f:
+        with open(getJsonName(__file__,"MAGeCK_test")) as f:
             self.data=jsonpickle.decode(f.read())
             f.close()
         self.initVolumes()
         self.inputConnections = ConnectionDict(self.inputConnectionsStore)
         self.drawGUI()
-    def handleInputslistSeq(self, value, *args):
+    def handleInputsoutputDir(self, value, *args):
         if args and len(args) > 0: 
-            self.handleInputs("listSeq", value, args[0][0], test=args[0][3])
-        else:
-            self.handleInputs("inputFile", value, None, False)
-    def handleInputsfastq(self, value, *args):
-        if args and len(args) > 0: 
-            self.handleInputs("fastq", value, args[0][0], test=args[0][3])
+            self.handleInputs("outputDir", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleInputscountTable(self, value, *args):
@@ -70,14 +68,14 @@ class OWMAGeCK_count(OWBwBWidget):
             self.handleInputs("countTable", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
-    def handleInputsfastq2(self, value, *args):
+    def handleInputstreatmentId(self, value, *args):
         if args and len(args) > 0: 
-            self.handleInputs("fastq2", value, args[0][0], test=args[0][3])
+            self.handleInputs("treatmentId", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
-    def handleInputsoutputDir(self, value, *args):
+    def handleInputsday0Label(self, value, *args):
         if args and len(args) > 0: 
-            self.handleInputs("outputDir", value, args[0][0], test=args[0][3])
+            self.handleInputs("day0Label", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleInputsoutputPrefix(self, value, *args):
@@ -87,14 +85,6 @@ class OWMAGeCK_count(OWBwBWidget):
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):
         outputValue=None
-        if hasattr(self,"File"):
-            outputValue=getattr(self,"File")
-        self.send("File", outputValue)
-        outputValue=None
         if hasattr(self,"outputDir"):
             outputValue=getattr(self,"outputDir")
         self.send("outputDir", outputValue)
-        outputValue=None
-        if hasattr(self,"outputPrefix"):
-            outputValue=getattr(self,"outputPrefix")
-        self.send("outputPrefix", outputValue)

@@ -1,0 +1,17 @@
+CHANGES FROM ORIGINAL:
+
+--pdf-report should now work. Originally, <sample>.count_normalized.txt 
+would be read in the .Rnw and .Rmd files via `read.table()`, 
+but the tab-delimited format in the .txt would lead to "
+Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  
+: line 7 did not have 3 elements" error. These files are supposed to be
+converted to pdf.
+To fix this, `sep = '\t'` argument is added to read.table().
+
+This fix has been applied to the following files:
+mageck/count_report.Rmd
+mageck/fastq_template.Rnw
+(no read.table() in mageck/plot_template.Rnw)
+mageck/plot_template.RTemplate
+(no read.table() in mageck/plot_template_indvgene.RTemplate)
+mageck/test_report.Rmd
