@@ -61,9 +61,10 @@ RUN R -e "install.packages(c('tidyverse', 'rmarkdown', 'reshape2', 'fgsea', 'phe
 ##  Set the working directory to the MAGeCK directory
 # WORKDIR liulab-mageck-c491c3874dca
 
-# Copy run_mageck_count.sh script into the container's /usr/local/bin and make it executable
+# Copy scripts into the container's /usr/local/bin and make it executable
 COPY run_mageck_count.sh /usr/local/bin/run_mageck_count.sh
-RUN chmod +x /usr/local/bin/run_mageck_count.sh
+COPY run_mageck_test.sh /usr/local/bin/run_mageck_test.sh
+RUN chmod +x /usr/local/bin/run_mageck_count.sh && chmod +x /usr/local/bin/run_mageck_test.sh
 
 # Copy MAGeCK v0.5.9.5 folder (with --pdf_report fix)
 COPY mageck-0.5.9.5 /app/mageck-0.5.9.5

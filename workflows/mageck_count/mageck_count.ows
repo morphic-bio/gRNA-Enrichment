@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><scheme description="" title="mageck-count" version="2.0">
 	<nodes>
-		<node id="0" name="MAGeCK_count" position="(158.0, 220.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_count.OWMAGeCK_count" title="MAGeCK count" version=""/>
+		<node id="0" name="MAGeCK_count" position="(158.0, 219.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_count.OWMAGeCK_count" title="MAGeCK count" version=""/>
 		<node id="1" name="MAGeCK_test" position="(155.0, 563.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_test.OWMAGeCK_test" title="MAGeCK test" version=""/>
 		<node id="2" name="MAGeCK_countcombine" position="(154.0, 382.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_countcombine.OWMAGeCK_countcombine" title="Combine counts" version=""/>
 	</nodes>
@@ -94,7 +94,7 @@ ADFxPlgHAAAAdGhyZWFkc3E/aD5YAwAAAHJhbXFAWAEAAAAwcUF1WAkAAABvdXRwdXREaXJxQn1x
 QyhoPWg+aD9oPmhAaEF1WAsAAABzYW1wbGVMYWJlbHFEfXFFKGg9aD5oP2g+aEBoQXVYDAAAAG91
 dHB1dFByZWZpeHFGfXFHKGg9aD5oP2g+aEBoQXV1WA0AAABpdGVyYXRlZEF0dHJzcUhdcUkoaDto
 RGhGZVgIAAAAbldvcmtlcnNxSksEdVgHAAAAa2VlcFRtcHFLiVgHAAAAbGlzdFNlcXFMWCMAAAAv
-ZGF0YS9icnVuZWxsby1saWJyYXJ5LTNjb2x1bW5zLnR4dHFNWAgAAABuV29ya2Vyc3FOSwRYCgAA
+ZGF0YS9icnVuZWxsby1saWJyYXJ5LTNjb2x1bW5zLnR4dHFNWAgAAABuV29ya2Vyc3FOSwJYCgAA
 AG5vcm1NZXRob2RxT1gEAAAAbm9uZXFQWA4AAABvcHRpb25zQ2hlY2tlZHFRfXFSKFgKAAAAbm9y
 bU1ldGhvZHFTiFgMAAAAY29udHJvbFNncm5hcVSJWAsAAABjb250cm9sR2VuZXFViVgLAAAAc2Ft
 cGxlTGFiZWxxVohYDAAAAG91dHB1dFByZWZpeHFXiFgOAAAAdW5tYXBwZWRUb0ZpbGVxWIlYBwAA
@@ -156,8 +156,8 @@ dmFsX0JDMjBfSUdPXzA5NDk2XzEyX1MxMnGqWCgAAABDbGlwMl83X0U4X2NvbnRyb2xfQkMyMV9J
 R09fMDk0OTZfMTNfUzEzcatYKAAAAENsaXAyXzdfRThfY29udHJvbF9CQzIyX0lHT18wOTQ5Nl8x
 NF9TMTRxrFgrAAAAQ2xpcDJfOF9JTjhfdHJlYXRtZW50X0JDMjNfSUdPXzA5NDk2XzE1X1MxNXGt
 WCsAAABDbGlwMl84X0lOOF90cmVhdG1lbnRfQkMyNF9JR09fMDk0OTZfMTZfUzE2ca5lWBMAAABz
-YXZlZFdpZGdldEdlb21ldHJ5ca9DMgHZ0MsAAgAAAAAB1wAAAKYAAAfMAAADyAAAAdcAAAC+AAAH
-zAAAA8UAAAAAAAAAAAkXcbBYCAAAAHNncm5hTGVucbFLFFgMAAAAdHJpZ2dlclJlYWR5cbJ9cbNY
+YXZlZFdpZGdldEdlb21ldHJ5ca9DMgHZ0MsAAgAAAAACAwAAAI4AAAf4AAADsAAAAgMAAACmAAAH
++AAAA60AAAAAAAAAAAkXcbBYCAAAAHNncm5hTGVucbFLFFgMAAAAdHJpZ2dlclJlYWR5cbJ9cbNY
 BQAAAHRyaW01cbRoA1gOAAAAdW5tYXBwZWRUb0ZpbGVxtYlYBgAAAHVzZUdwdXG2iVgMAAAAdXNl
 U2NoZWR1bGVycbeJWAsAAABfX3ZlcnNpb25fX3G4SwF1Lg==
 </properties>
@@ -191,13 +191,13 @@ WAkAAABERV9zY3JlZW5xVVgJAAAATkVfc2NyZWVucVZYCQAAAEU2X3NjcmVlbnFXWAkAAABFOF9z
 Y3JlZW5xWGVYBgAAAHBhaXJlZHFZiVgJAAAAcGRmUmVwb3J0cVqJWAoAAAByZW1vdmVaZXJvcVtY
 BAAAAGJvdGhxXFgTAAAAcmVtb3ZlWmVyb1RocmVzaG9sZHFdSwBYBgAAAHJlcGVhdHFeiVgHAAAA
 cnVuTW9kZXFfSwJYCwAAAHJ1blRyaWdnZXJzcWBdcWFYCgAAAGNvdW50VGFibGVxYmFYEwAAAHNh
-dmVkV2lkZ2V0R2VvbWV0cnlxY0MyAdnQywACAAAAAASsAAABXQAACKkAAAMHAAAErAAAAXUAAAip
-AAADBAAAAAAAAAAACRdxZFgIAAAAc2tpcEdlbmVxZWgCWAwAAABzb3J0Q3JpdGVyaWFxZlgDAAAA
+dmVkV2lkZ2V0R2VvbWV0cnlxY0MyAdnQywACAAAAAAI8AAABagAABmYAAAN6AAACPAAAAYIAAAZm
+AAADdwAAAAAAAAAACRdxZFgIAAAAc2tpcEdlbmVxZWgCWAwAAABzb3J0Q3JpdGVyaWFxZlgDAAAA
 bmVncWdYCwAAAHRyZWF0bWVudElkcWhdcWkoWA0AAAA0X0RFX0dGUF9oaWdocWpYDQAAADJfTkVf
 R0ZQX2hpZ2hxa1gNAAAANl9FNl9zdXJ2aXZhbHFsWAwAAAA3X0U4X2NvbnRyb2xxbWVYDAAAAHRy
 aWdnZXJSZWFkeXFufXFvaGKJc1gGAAAAdXNlR3B1cXCJWAwAAAB1c2VTY2hlZHVsZXJxcYlYGQAA
 AHZhcmlhbmNlRXN0aW1hdGlvblNhbXBsZXNxcmgCWAsAAABfX3ZlcnNpb25fX3FzSwF1Lg==
 </properties>
-		<properties format="literal" node_id="2">{'controlAreaVisible': True, 'exportGraphics': False, 'inputConnectionsStore': {'inputDir': [1]}, 'inputDir': '', 'iterate': False, 'iterateSettings': {'iterableAttrs': ['sampleNames'], 'nWorkers': 1}, 'nWorkers': 1, 'optionsChecked': {'countTable': False, 'normMethod': False, 'controlSgrna': False, 'controlGene': False, 'sampleLabel': False, 'outputPrefix': False, 'unmappedToFile': False, 'keepTmp': False, 'fastq2': False, 'countPair': False, 'trim5': False, 'sgrnaLen': False, 'countN': False, 'reverseComplement': False, 'pdfReport': False, 'day0Label': False}, 'outputFile': '/data/msk-testrun/combined_counts.txt', 'repeat': False, 'runMode': 2, 'runTriggers': ['inputDir'], 'sampleNames': ['1_E8_T0', '2_NE_GFP_high', '3_NE_GFP_low', '4_DE_GFP_high', '5_DE_GFP_low', '6_E6_survival', '7_E8_control'], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x03&amp;\x00\x00\x01F\x00\x00\x07E\x00\x00\x03n\x00\x00\x03&amp;\x00\x00\x01^\x00\x00\x07E\x00\x00\x03k\x00\x00\x00\x00\x00\x00\x00\x00\t\x17', 'triggerReady': {'inputDir': False}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
+		<properties format="literal" node_id="2">{'controlAreaVisible': True, 'exportGraphics': False, 'inputConnectionsStore': {'inputDir': [1]}, 'inputDir': '', 'iterate': False, 'iterateSettings': {'iterableAttrs': ['sampleNames'], 'nWorkers': 1}, 'nWorkers': 1, 'optionsChecked': {'countTable': False, 'normMethod': False, 'controlSgrna': False, 'controlGene': False, 'sampleLabel': False, 'outputPrefix': False, 'unmappedToFile': False, 'keepTmp': False, 'fastq2': False, 'countPair': False, 'trim5': False, 'sgrnaLen': False, 'countN': False, 'reverseComplement': False, 'pdfReport': False, 'day0Label': False}, 'outputFile': '/data/msk-testrun/combined_counts.txt', 'repeat': False, 'runMode': 2, 'runTriggers': ['inputDir'], 'sampleNames': ['1_E8_T0', '2_NE_GFP_high', '3_NE_GFP_low', '4_DE_GFP_high', '5_DE_GFP_low', '6_E6_survival', '7_E8_control'], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x02\x87\x00\x00\x01N\x00\x00\x05\xf0\x00\x00\x02\xd1\x00\x00\x02\x87\x00\x00\x01f\x00\x00\x05\xf0\x00\x00\x02\xce\x00\x00\x00\x00\x00\x00\x00\x00\t\x17', 'triggerReady': {'inputDir': False}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
 	</node_properties>
 </scheme>
