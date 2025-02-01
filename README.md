@@ -1,6 +1,6 @@
 # gRNA-Enrichment
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/morphio-bio/gRNA-Enrichment)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/morphic-bio/gRNA-Enrichment)
 
 ## Overview
 
