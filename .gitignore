@@ -40,6 +40,9 @@ build/
 counts.txt
 GSE277069.count-sums.20241213.txt
 
+# Ignore workflow outputs
+outputs/
+
 # Ignore IDE specific files
 .vscode/
 .idea/
