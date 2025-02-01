@@ -17,9 +17,9 @@ class OWMAGeCK_count(OWBwBWidget):
     priority = 10
     icon = getIconName(__file__,"mageckgithub.png")
     want_main_area = False
-    docker_image_name = "mageck"
+    docker_image_name = "brycenofu/mageck"
     docker_image_tag = "0.5.9.5_debian13"
-    inputs = [("listSeq",str,"handleInputslistSeq"),("fastq",str,"handleInputsfastq"),("countTable",str,"handleInputscountTable"),("fastq2",str,"handleInputsfastq2"),("outputDir",str,"handleInputsoutputDir"),("outputPrefix",str,"handleInputsoutputPrefix")]
+    inputs = [("listSeq",str,"handleInputslistSeq"),("fastq",str,"handleInputsfastq"),("countTable",str,"handleInputscountTable"),("fastq2",str,"handleInputsfastq2"),("outputDir",str,"handleInputsoutputDir"),("outputPrefix",str,"handleInputsoutputPrefix"),("Trigger",str,"handleInputsTrigger")]
     outputs = [("File",str),("outputDir",str),("outputPrefix",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
@@ -83,6 +83,11 @@ class OWMAGeCK_count(OWBwBWidget):
     def handleInputsoutputPrefix(self, value, *args):
         if args and len(args) > 0: 
             self.handleInputs("outputPrefix", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputsTrigger(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("Trigger", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):

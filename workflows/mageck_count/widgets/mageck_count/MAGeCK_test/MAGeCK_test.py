@@ -17,7 +17,7 @@ class OWMAGeCK_test(OWBwBWidget):
     priority = 10
     icon = getIconName(__file__,"mageckgithub.png")
     want_main_area = False
-    docker_image_name = "mageck"
+    docker_image_name = "brycenofu/mageck"
     docker_image_tag = "0.5.9.5_debian13"
     inputs = [("outputDir",str,"handleInputsoutputDir"),("countTable",str,"handleInputscountTable"),("treatmentId",str,"handleInputstreatmentId"),("day0Label",str,"handleInputsday0Label"),("outputPrefix",str,"handleInputsoutputPrefix")]
     outputs = [("outputDir",str)]

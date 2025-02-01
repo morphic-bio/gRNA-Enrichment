@@ -17,7 +17,7 @@ class OWMAGeCK_countcombine(OWBwBWidget):
     priority = 10
     icon = getIconName(__file__,"python3.png")
     want_main_area = False
-    docker_image_name = "mageck-countcombine"
+    docker_image_name = "brycenofu/mageck-countcombine"
     docker_image_tag = "latest"
     inputs = [("Trigger",str,"handleInputsTrigger"),("inputDir",str,"handleInputsinputDir"),("outputFile",str,"handleInputsoutputFile"),("sampleNames",str,"handleInputssampleNames")]
     outputs = [("outputFile",str),("sampleNames",str)]
