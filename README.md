@@ -1,8 +1,10 @@
 # gRNA-Enrichment
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/morphic-bio/gRNA-Enrichment)
+
 ## Overview
 
-This repository contains a [Bidepot-workflow-builder (Bwb)](https://github.com/BioDepot/BioDepot-workflow-builder) workflow to run `MAGeCK count` and a Jupyter Notebook for comparing the outputs of gene count table between samples from MSK (original data providers) and Bwb (reprocessed from the workflow). After obtaining counts, `MAGeCK test` executes gene rankings for provided screens.
+This repository contains a [Biodepot-workflow-builder (Bwb)](https://github.com/BioDepot/BioDepot-workflow-builder) workflow to run `MAGeCK count` and a Jupyter Notebook for comparing the outputs of gene count table between samples from MSK (original data providers) and Bwb (reprocessed from the workflow). After obtaining counts, `MAGeCK test` executes gene rankings for provided screens.
 
 ## Workflow
 
@@ -15,6 +17,16 @@ This repository contains a [Bidepot-workflow-builder (Bwb)](https://github.com/B
 ## Count Comparison Analysis
 
 **CompareCounts.ipynb**: A Jupyter Notebook is provided to compare the gRNA counts between the original MSK data and the reprocessed Bwb data.
+
+## Included test data
+
+This repository has publicly-available The included data is from the following study:
+
+Rosen BP, Li QV, Cho HS, Liu D et al. Parallel genome-scale CRISPR-Cas9 screens uncouple human pluripotent stem cell identity versus fitness. Nat Commun 2024 Oct 17;15(1):8966. PMID: [39419994](https://www.ncbi.nlm.nih.gov/pubmed/39419994)
+
+[NCBI GEO public access is located here.](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277069)
+
+The workflow uses 1_E8_T0, 2_NE_GFP_high, 3_NE_GFP_low, and 7_E8_control samples (4 of the original 8) as workflow test samples. Downsampled versions of their fastq files are included in this repository for fast test purposes.
 
 ## Requirements
 
