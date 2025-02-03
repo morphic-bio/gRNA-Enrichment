@@ -3,7 +3,7 @@
 		<node id="0" name="MAGeCK_count" position="(293.0, 596.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_count.OWMAGeCK_count" title="MAGeCK count" version=""/>
 		<node id="1" name="MAGeCK_test" position="(290.0, 940.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_test.OWMAGeCK_test" title="MAGeCK test" version=""/>
 		<node id="2" name="MAGeCK_countcombine" position="(289.0, 759.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_countcombine.OWMAGeCK_countcombine" title="Combine counts into single table" version=""/>
-		<node id="3" name="fastqDump" position="(296.0, 404.0)" project_name="mageck-count" qualified_name="mageck_count.OWfastqDump.OWfastqDump" title="Fastqdump download full samples from SRA" version=""/>
+		<node id="3" name="fastqDump" position="(296.0, 403.0)" project_name="mageck-count" qualified_name="mageck_count.OWfastqDump.OWfastqDump" title="Fastqdump download full samples from SRA" version=""/>
 		<node id="4" name="gnumeric" position="(299.0, 228.0)" project_name="mageck-count" qualified_name="mageck_count.OWgnumeric.OWgnumeric" title="gnumeric samplesheet setup" version=""/>
 	</nodes>
 	<links>
