@@ -6,6 +6,8 @@ This repository contains a [Bidepot-workflow-builder (Bwb)](https://github.com/B
 
 ## Workflow
 
+![Workflow Screenshot](doc/images/bwb_grna_wf.png)
+
 **MAGeCK Count**: This step involves running the MAGeCK count tool (version 0.5.9.5) to quantify gRNA abundance from sequencing data. Main command is `mageck count`. Inputs are fastq files, outputs are gene count tables for each fastq file.
 
 **Combine counts**: Combine counts obtained from `mageck count` into a single count table. Gene counts are summed based on their sample, if multiple fastq files are used for each sample.
