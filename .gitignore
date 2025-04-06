@@ -50,3 +50,6 @@ outputs/
 *.user
 *.userosscache
 *.sln.docstates
+
+# Ignore development folder
+dev/

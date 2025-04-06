@@ -73,6 +73,7 @@ def combine_counts(input_dir: str, output_file: str, sample_names: list[str]):
 def reformat_list(input_list: list[str]) -> list[str]:
     """
     If the input list contains a single string that is a JSON/comma list, parse it and return the list.
+    For example, if the input list is ['["sample1", "sample2"]'], this function will return ['sample1', 'sample2'].
 
     Parameters
     ----------
