@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository contains a [Biodepot-workflow-builder (Bwb)](https://github.com/BioDepot/BioDepot-workflow-builder) workflow to run `MAGeCK count` and a Jupyter Notebook for comparing the outputs of gene count table between samples from MSK (original data providers) and Bwb (reprocessed from the workflow). After obtaining counts, `MAGeCK test` executes gene rankings for provided screens.
+This repository contains a [Biodepot-workflow-builder (Bwb)](https://github.com/BioDepot/BioDepot-workflow-builder) workflow to run `MAGeCK count` and a Jupyter Notebook for comparing the outputs of gene count table between samples from MSK (original data providers) and Bwb (reprocessed from the workflow). After obtaining counts, `MAGeCK test` executes gene rankings for provided screens. The final step takes `MAGeCK test` gene ranking outputs for each screen and get their minimum p-values and minimum FDR values, as well as create volcano plots from these minimum values.
 
 ## Workflow
 
@@ -12,13 +12,11 @@ This repository contains a [Biodepot-workflow-builder (Bwb)](https://github.com/
 
 **MAGeCK Count**: This step involves running the MAGeCK count tool (version 0.5.9.5) to quantify gRNA abundance from sequencing data. Main command is `mageck count`. Inputs are fastq files, outputs are gene count tables for each fastq file.
 
-**Combine counts**: Combine counts obtained from `mageck count` into a single count table. Gene counts are summed based on their sample, if multiple fastq files are used for each sample.
+**Combine counts**: Combine counts obtained from `mageck count` into a single count table. Gene counts are summed based on their sample, if multiple fastq files are used for each sample. Summary statistics from `mageck count`, originally from each fastq file, are summarized for each sample.
 
 **MAGeCK test**: Use the count table to get sgRNA and gene rankings.
 
-## Count Comparison Analysis
-
-**CompareCounts.ipynb**: A Jupyter Notebook is provided to compare the gRNA counts between the original MSK data and the reprocessed Bwb data.
+**Minimum p-value FDR and volcano plots**: Take `mageck test` gene ranking outputs for each screen/prefix and extract the minimum p-values and minimum FDR values. Outputs are sorted and exported to separate text files. Includes the option to create plotly volcano plots from minimum p-values & FDR outputs for each screen/prefix.
 
 ## Included test data
 
@@ -36,7 +34,7 @@ The workflow uses 1_E8_T0, 2_NE_GFP_high, 3_NE_GFP_low, and 7_E8_control samples
 - Python 3.x
     - Pandas
     - NumPy
-- Jupyter Notebook
+- Docker
 
 ## References
 
