@@ -1,3 +1,13 @@
+### This script extracts the minimum p-value and FDR values from MAGeCK test output for a screen.
+### It also generates volcano plots for the minimum p-value and FDR dataframes.
+#
+# Usage:
+# python mageck_test_min_pval_fdr.py --input_dir <input_dir> --output_dir <output_dir> --screen <screen_name> --volcano
+# --y_axis_threshold <y_axis_threshold> --x_axis_threshold <x_axis_threshold>
+#
+# Example:
+# python mageck_test_min_pval_fdr.py --input_dir ./mageck_test_output --output_dir ./output --screen screen1 --volcano --y_axis_threshold 0.05 --x_axis_threshold 1.0
+
 import os
 import pandas as pd
 import glob
@@ -49,6 +59,10 @@ def get_min_and_fdr(input_dir: str, output_dir: str, screen: str):
     mageck_test_gene_summary_filtered['min_fdr'] = mageck_test_gene_summary_filtered[['neg_fdr', 'pos_fdr']].min(axis=1)
     mageck_test_gene_summary_filtered_min_pval = mageck_test_gene_summary_filtered[['id', 'num', 'lfc', 'min_p-value']]
     mageck_test_gene_summary_filtered_min_fdr = mageck_test_gene_summary_filtered[['id', 'num', 'lfc', 'min_fdr']]
+
+    # Sort the dataframes by the minimum p-value and FDR values followed by the log fold change followed by the gene id
+    mageck_test_gene_summary_filtered_min_pval = mageck_test_gene_summary_filtered_min_pval.sort_values(by=['min_p-value', 'lfc', 'id'], ascending=[True, True, True])
+    mageck_test_gene_summary_filtered_min_fdr = mageck_test_gene_summary_filtered_min_fdr.sort_values(by=['min_fdr', 'lfc', 'id'], ascending=[True, True, True])
 
     # Paths to output files
     min_pval_file = os.path.join(output_dir, f"{screen}_gene_min_pval_summary.txt")

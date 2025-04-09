@@ -98,7 +98,7 @@ def main():
     sample_names = reformat_list(args.sample_names)
 
     # Make output directory for the output file if it doesn't exist already
-    os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
+    os.makedirs(os.path.dirname(args.stats_file), exist_ok=True)
 
     # Make the stats file
     sample_count_stats(args.input_dir, args.stats_file, sample_names)
