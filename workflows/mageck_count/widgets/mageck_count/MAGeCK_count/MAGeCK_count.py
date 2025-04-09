@@ -39,7 +39,7 @@ class OWMAGeCK_count(OWBwBWidget):
     outputPrefix=pset(['sample1'])
     unmappedToFile=pset(False)
     keepTmp=pset(False)
-    fastq2=pset(None)
+    fastq2=pset([])
     countPair=pset("False")
     trim5=pset(None)
     sgrnaLen=pset(20)

@@ -1,35 +1,36 @@
 <?xml version="1.0" ?><scheme description="" title="mageck-count" version="2.0">
 	<nodes>
-		<node id="0" name="MAGeCK_count" position="(293.0, 596.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_count.OWMAGeCK_count" title="MAGeCK count" version=""/>
-		<node id="1" name="MAGeCK_test" position="(290.0, 940.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_test.OWMAGeCK_test" title="MAGeCK test" version=""/>
-		<node id="2" name="MAGeCK_countcombine" position="(289.0, 759.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_countcombine.OWMAGeCK_countcombine" title="Combine counts into single table" version=""/>
-		<node id="3" name="fastqDump" position="(296.0, 403.0)" project_name="mageck-count" qualified_name="mageck_count.OWfastqDump.OWfastqDump" title="Fastqdump download full samples from SRA" version=""/>
-		<node id="4" name="gnumeric" position="(299.0, 228.0)" project_name="mageck-count" qualified_name="mageck_count.OWgnumeric.OWgnumeric" title="gnumeric samplesheet setup" version=""/>
+		<node id="0" name="MAGeCK_count" position="(294.0, 471.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_count.OWMAGeCK_count" title="MAGeCK count" version=""/>
+		<node id="1" name="MAGeCK_test" position="(291.0, 814.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_test.OWMAGeCK_test" title="MAGeCK test" version=""/>
+		<node id="2" name="MAGeCK_countcombine" position="(290.0, 634.0)" project_name="mageck-count" qualified_name="mageck_count.OWMAGeCK_countcombine.OWMAGeCK_countcombine" title="Combine counts into single table" version=""/>
+		<node id="3" name="fastqDump" position="(296.0, 327.0)" project_name="mageck-count" qualified_name="mageck_count.OWfastqDump.OWfastqDump" title="Fastqdump download full samples from SRA" version=""/>
+		<node id="4" name="gnumeric" position="(299.0, 152.0)" project_name="mageck-count" qualified_name="mageck_count.OWgnumeric.OWgnumeric" title="gnumeric samplesheet setup" version=""/>
+		<node id="5" name="min_pval_fdr_volcano" position="(289.0, 965.0)" project_name="mageck-count" qualified_name="mageck_count.OWmin_pval_fdr_volcano.OWmin_pval_fdr_volcano" title="Min pval FDR &amp; volcano plots" version=""/>
 	</nodes>
 	<links>
 		<link enabled="true" id="0" sink_channel="inputDir" sink_node_id="2" source_channel="outputDir" source_node_id="0"/>
 		<link enabled="true" id="1" sink_channel="countTable" sink_node_id="1" source_channel="outputFile" source_node_id="2"/>
+		<link enabled="true" id="2" sink_channel="inputDir" sink_node_id="5" source_channel="outputDir" source_node_id="1"/>
+		<link enabled="true" id="3" sink_channel="screen" sink_node_id="5" source_channel="outputPrefix" source_node_id="1"/>
 	</links>
 	<annotations>
-		<text font-family="Helvetica" font-size="16" id="0" rect="(420.0, 559.0, 921.0, 126.0)" type="text/plain">Provide your sgRNA library file (List with three columns (sgRNA names, their sequences, and associated genes), .csv or .txt (provide empty file for all sgRNA counts))
+		<text font-family="Helvetica" font-size="16" id="0" rect="(421.0, 434.0, 921.0, 126.0)" type="text/plain">Provide your sgRNA library file (List with three columns (sgRNA names, their sequences, and associated genes), .csv or .txt (provide empty file for all sgRNA counts))
 Provide your fastq.gz files
 Provide your sample labels and prefix (should be the same, taken from fastq file names)
 Provide the expected output directory for all counts to be stored in
 Provide any settings and options to run the execution</text>
-		<text font-family="Helvetica" font-size="16" id="1" rect="(426.0, 754.0, 1348.0, 81.0)" type="text/plain">Provide the expected output file of the gene count table</text>
-		<text font-family="Helvetica" font-size="16" id="2" rect="(421.0, 914.0, 1314.0, 107.0)" type="text/plain">In the order of execution:
+		<text font-family="Helvetica" font-size="16" id="1" rect="(427.0, 629.0, 1348.0, 81.0)" type="text/plain">Provide the expected output file of the gene count table</text>
+		<text font-family="Helvetica" font-size="16" id="2" rect="(422.0, 789.0, 1314.0, 107.0)" type="text/plain">In the order of execution:
 Provide the name of of the control and treatment samples
 Provide the screen prefix
-
 Provide the expected output directory for all output files to be stored in</text>
-		<text font-family="Helvetica" font-size="16" id="3" rect="(253.0, 113.0, 1448.0, 53.0)" type="text/plain">Samples 1_E8_T0, 2_NE_GFP_high, 3_NE_GFP_low, and 7_E8_control are included in this workflow. By default, downsampled Fastq files are set in the main widgets. </text>
-		<text font-family="Helvetica" font-size="16" id="4" rect="(419.0, 386.0, 913.0, 107.0)" type="text/plain">You can download the full Fastq files from SRA using this widget. Put in fastq's run SRR IDs (SRR___) as inputs. sra-tools might return an &quot;error code 0&quot; even if all files are downloaded successfully.
+		<text font-family="Helvetica" font-size="16" id="3" rect="(253.0, 37.0, 1448.0, 53.0)" type="text/plain">Samples 1_E8_T0, 2_NE_GFP_high, 3_NE_GFP_low, and 7_E8_control are included in this workflow. By default, downsampled Fastq files are set in the main widgets. </text>
+		<text font-family="Helvetica" font-size="16" id="4" rect="(419.0, 310.0, 913.0, 107.0)" type="text/plain">You can download the full Fastq files from SRA using this widget. Put in fastq's run SRR IDs (SRR___) as inputs. sra-tools might return an &quot;error code 0&quot; even if all files are downloaded successfully.
 Be sure to change the Fastq file paths in the `MAGeCK count` widget, from &quot;/data/fastq_subsample/...&quot; to &quot;/data/outputs/fastq/...&quot;.</text>
-		<text font-family="Helvetica" font-size="16" id="5" rect="(22.0, 574.0, 143.0, 88.0)" type="text/plain">Count and test</text>
-		<text font-family="Helvetica" font-size="16" id="6" rect="(16.0, 374.0, 179.0, 102.0)" type="text/plain">(Optional: Download larger set of Fastq files)</text>
-		<text font-family="Helvetica" font-size="16" id="7" rect="(20.0, 198.0, 226.0, 77.0)" type="text/plain">(Optional: Set up samplesheet for widget inputs)</text>
-		<text font-family="Helvetica" font-size="16" id="8" rect="(424.0, 204.0, 887.0, 94.0)" type="text/plain">If you want to use SRA data or your own files, run this widget to set up a samplesheet for the workflow. Sheet 1 is for SRA Metadata (for fastqdump) and MAGeCK count, Sheet 2 is for Combine counts, and Sheet 3is for MAGeCK test. An example is provided from the start.
-
+		<text font-family="Helvetica" font-size="16" id="5" rect="(23.0, 449.0, 143.0, 88.0)" type="text/plain">Count and test</text>
+		<text font-family="Helvetica" font-size="16" id="6" rect="(16.0, 298.0, 179.0, 102.0)" type="text/plain">(Optional: Download larger set of Fastq files)</text>
+		<text font-family="Helvetica" font-size="16" id="7" rect="(20.0, 122.0, 226.0, 77.0)" type="text/plain">(Optional: Set up samplesheet for widget inputs)</text>
+		<text font-family="Helvetica" font-size="16" id="8" rect="(424.0, 128.0, 887.0, 126.0)" type="text/plain">If you want to use SRA data or your own files, run this widget to set up a samplesheet for the workflow. Sheet 1 is for SRA Metadata (for fastqdump) and MAGeCK count, Sheet 2 is for Combine counts, and Sheet 3is for MAGeCK test. An example is provided from the start.
 This samplesheet itself is not used as an input. Use this samplesheet to copy and paste values into input sections for the widgets below.</text>
 	</annotations>
 	<thumbnail/>
@@ -51,77 +52,79 @@ YXRhL2Zhc3RxX3N1YnNhbXBsZS9TUlIzMDY1MDU2MS5mYXN0cS5nenEYWCoAAAAvZGF0YS9mYXN0
 cV9zdWJzYW1wbGUvU1JSMzA2NTA1NDIuZmFzdHEuZ3pxGVgqAAAAL2RhdGEvZmFzdHFfc3Vic2Ft
 cGxlL1NSUjMwNjUwNTQzLmZhc3RxLmd6cRpYKgAAAC9kYXRhL2Zhc3RxX3N1YnNhbXBsZS9TUlIz
 MDY1MDU0NC5mYXN0cS5nenEbWCoAAAAvZGF0YS9mYXN0cV9zdWJzYW1wbGUvU1JSMzA2NTA1NDUu
-ZmFzdHEuZ3pxHGVYBgAAAGZhc3RxMnEdaANYFQAAAGlucHV0Q29ubmVjdGlvbnNTdG9yZXEefXEf
-WAcAAABpdGVyYXRlcSCIWA8AAABpdGVyYXRlU2V0dGluZ3NxIX1xIihYDQAAAGl0ZXJhYmxlQXR0
-cnNxI11xJChYBQAAAGZhc3RxcSVYCwAAAHNhbXBsZUxhYmVscSZYDAAAAG91dHB1dFByZWZpeHEn
-ZVgEAAAAZGF0YXEoY2NvbGxlY3Rpb25zCk9yZGVyZWREaWN0CnEpKVJxKihYBQAAAGZhc3RxcSt9
-cSwoWAkAAABncm91cFNpemVxLVgBAAAAMXEuWAcAAAB0aHJlYWRzcS9oLlgDAAAAcmFtcTBYAQAA
-ADBxMXVYCQAAAG91dHB1dERpcnEyfXEzKGgtaC5oL2guaDBoMXVYCwAAAHNhbXBsZUxhYmVscTR9
-cTUoaC1oLmgvaC5oMGgxdVgMAAAAb3V0cHV0UHJlZml4cTZ9cTcoaC1oLmgvaC5oMGgxdXVYDQAA
-AGl0ZXJhdGVkQXR0cnNxOF1xOShoK2g0aDZlWAgAAABuV29ya2Vyc3E6SwJ1WAcAAABrZWVwVG1w
-cTuJWAcAAABsaXN0U2VxcTxYMwAAAC9kYXRhL3JlZmVyZW5jZV9maWxlcy9icnVuZWxsby1saWJy
-YXJ5LTNjb2x1bW5zLnR4dHE9WAgAAABuV29ya2Vyc3E+SwJYCgAAAG5vcm1NZXRob2RxP1gEAAAA
-bm9uZXFAWA4AAABvcHRpb25zQ2hlY2tlZHFBfXFCKFgKAAAAbm9ybU1ldGhvZHFDiFgMAAAAY29u
-dHJvbFNncm5hcUSJWAsAAABjb250cm9sR2VuZXFFiVgLAAAAc2FtcGxlTGFiZWxxRohYDAAAAG91
-dHB1dFByZWZpeHFHiFgOAAAAdW5tYXBwZWRUb0ZpbGVxSIlYBwAAAGtlZXBUbXBxSYlYBgAAAGZh
-c3RxMnFKiVgJAAAAY291bnRQYWlycUuJWAUAAAB0cmltNXFMiVgIAAAAc2dybmFMZW5xTYlYBgAA
-AGNvdW50TnFOiVgRAAAAcmV2ZXJzZUNvbXBsZW1lbnRxT4lYCQAAAHBkZlJlcG9ydHFQiVgJAAAA
-ZGF5MExhYmVscVGJWAoAAABjb3VudFRhYmxlcVKJdVgJAAAAb3V0cHV0RGlycVNYHgAAAC9kYXRh
-L291dHB1dHMvbWFnZWNrX2NvdW50X291dHFUWAwAAABvdXRwdXRQcmVmaXhxVV1xVihYCQAAADFf
-RThfVDBfMXFXWAkAAAAxX0U4X1QwXzJxWFgJAAAAMV9FOF9UMF8zcVlYCQAAADFfRThfVDBfNHFa
-WA8AAAAyX05FX0dGUF9oaWdoXzFxW1gPAAAAMl9ORV9HRlBfaGlnaF8ycVxYDwAAADJfTkVfR0ZQ
-X2hpZ2hfM3FdWA8AAAAyX05FX0dGUF9oaWdoXzRxXlgOAAAAM19ORV9HRlBfbG93XzFxX1gOAAAA
-M19ORV9HRlBfbG93XzJxYFgOAAAAM19ORV9HRlBfbG93XzNxYVgOAAAAM19ORV9HRlBfbG93XzRx
-YlgOAAAAN19FOF9jb250cm9sXzFxY1gOAAAAN19FOF9jb250cm9sXzJxZFgOAAAAN19FOF9jb250
-cm9sXzNxZVgOAAAAN19FOF9jb250cm9sXzRxZmVYCQAAAHBkZlJlcG9ydHFniFgGAAAAcmVwZWF0
-cWiJWBEAAAByZXZlcnNlQ29tcGxlbWVudHFpiVgHAAAAcnVuTW9kZXFqSwBYCwAAAHJ1blRyaWdn
-ZXJzcWtdcWxYCwAAAHNhbXBsZUxhYmVscW1dcW4oWAkAAAAxX0U4X1QwXzFxb1gJAAAAMV9FOF9U
-MF8ycXBYCQAAADFfRThfVDBfM3FxWAkAAAAxX0U4X1QwXzRxclgPAAAAMl9ORV9HRlBfaGlnaF8x
-cXNYDwAAADJfTkVfR0ZQX2hpZ2hfMnF0WA8AAAAyX05FX0dGUF9oaWdoXzNxdVgPAAAAMl9ORV9H
-RlBfaGlnaF80cXZYDgAAADNfTkVfR0ZQX2xvd18xcXdYDgAAADNfTkVfR0ZQX2xvd18ycXhYDgAA
-ADNfTkVfR0ZQX2xvd18zcXlYDgAAADNfTkVfR0ZQX2xvd180cXpYDgAAADdfRThfY29udHJvbF8x
-cXtYDgAAADdfRThfY29udHJvbF8ycXxYDgAAADdfRThfY29udHJvbF8zcX1YDgAAADdfRThfY29u
-dHJvbF80cX5lWBMAAABzYXZlZFdpZGdldEdlb21ldHJ5cX9DMgHZ0MsAAgAAAAACuwAAAIMAAAiw
-AAADpQAAArsAAACbAAAIsAAAA6IAAAAAAAAAAAkXcYBYCAAAAHNncm5hTGVucYFLFFgMAAAAdHJp
-Z2dlclJlYWR5cYJ9cYNYBQAAAHRyaW01cYRoA1gOAAAAdW5tYXBwZWRUb0ZpbGVxhYlYBgAAAHVz
-ZUdwdXGGiVgMAAAAdXNlU2NoZWR1bGVycYeJWAsAAABfX3ZlcnNpb25fX3GISwF1Lg==
+ZmFzdHEuZ3pxHGVYBgAAAGZhc3RxMnEdXXEeWBUAAABpbnB1dENvbm5lY3Rpb25zU3RvcmVxH31x
+IFgHAAAAaXRlcmF0ZXEhiFgPAAAAaXRlcmF0ZVNldHRpbmdzcSJ9cSMoWA0AAABpdGVyYWJsZUF0
+dHJzcSRdcSUoWAUAAABmYXN0cXEmWAsAAABzYW1wbGVMYWJlbHEnWAwAAABvdXRwdXRQcmVmaXhx
+KFgGAAAAZmFzdHEycSllWAQAAABkYXRhcSpjY29sbGVjdGlvbnMKT3JkZXJlZERpY3QKcSspUnEs
+KFgFAAAAZmFzdHFxLX1xLihYCQAAAGdyb3VwU2l6ZXEvWAEAAAAxcTBYBwAAAHRocmVhZHNxMWgw
+WAMAAAByYW1xMlgBAAAAMHEzdVgJAAAAb3V0cHV0RGlycTR9cTUoaC9oMGgxaDBoMmgzdVgLAAAA
+c2FtcGxlTGFiZWxxNn1xNyhoL2gwaDFoMGgyaDN1WAwAAABvdXRwdXRQcmVmaXhxOH1xOShoL2gw
+aDFoMGgyaDN1dVgNAAAAaXRlcmF0ZWRBdHRyc3E6XXE7KGgtaDZoOGVYCAAAAG5Xb3JrZXJzcTxL
+AnVYBwAAAGtlZXBUbXBxPYlYBwAAAGxpc3RTZXFxPlgzAAAAL2RhdGEvcmVmZXJlbmNlX2ZpbGVz
+L2JydW5lbGxvLWxpYnJhcnktM2NvbHVtbnMudHh0cT9YCAAAAG5Xb3JrZXJzcUBLAlgKAAAAbm9y
+bU1ldGhvZHFBWAQAAABub25lcUJYDgAAAG9wdGlvbnNDaGVja2VkcUN9cUQoWAoAAABub3JtTWV0
+aG9kcUWIWAwAAABjb250cm9sU2dybmFxRolYCwAAAGNvbnRyb2xHZW5lcUeJWAsAAABzYW1wbGVM
+YWJlbHFIiFgMAAAAb3V0cHV0UHJlZml4cUmIWA4AAAB1bm1hcHBlZFRvRmlsZXFKiVgHAAAAa2Vl
+cFRtcHFLiVgGAAAAZmFzdHEycUyJWAkAAABjb3VudFBhaXJxTYlYBQAAAHRyaW01cU6JWAgAAABz
+Z3JuYUxlbnFPiVgGAAAAY291bnROcVCJWBEAAAByZXZlcnNlQ29tcGxlbWVudHFRiVgJAAAAcGRm
+UmVwb3J0cVKJWAkAAABkYXkwTGFiZWxxU4lYCgAAAGNvdW50VGFibGVxVIl1WAkAAABvdXRwdXRE
+aXJxVVgeAAAAL2RhdGEvb3V0cHV0cy9tYWdlY2tfY291bnRfb3V0cVZYDAAAAG91dHB1dFByZWZp
+eHFXXXFYKFgJAAAAMV9FOF9UMF8xcVlYCQAAADFfRThfVDBfMnFaWAkAAAAxX0U4X1QwXzNxW1gJ
+AAAAMV9FOF9UMF80cVxYDwAAADJfTkVfR0ZQX2hpZ2hfMXFdWA8AAAAyX05FX0dGUF9oaWdoXzJx
+XlgPAAAAMl9ORV9HRlBfaGlnaF8zcV9YDwAAADJfTkVfR0ZQX2hpZ2hfNHFgWA4AAAAzX05FX0dG
+UF9sb3dfMXFhWA4AAAAzX05FX0dGUF9sb3dfMnFiWA4AAAAzX05FX0dGUF9sb3dfM3FjWA4AAAAz
+X05FX0dGUF9sb3dfNHFkWA4AAAA3X0U4X2NvbnRyb2xfMXFlWA4AAAA3X0U4X2NvbnRyb2xfMnFm
+WA4AAAA3X0U4X2NvbnRyb2xfM3FnWA4AAAA3X0U4X2NvbnRyb2xfNHFoZVgJAAAAcGRmUmVwb3J0
+cWmIWAYAAAByZXBlYXRxaolYEQAAAHJldmVyc2VDb21wbGVtZW50cWuJWAcAAABydW5Nb2RlcWxL
+AFgLAAAAcnVuVHJpZ2dlcnNxbV1xblgLAAAAc2FtcGxlTGFiZWxxb11xcChYCQAAADFfRThfVDBf
+MXFxWAkAAAAxX0U4X1QwXzJxclgJAAAAMV9FOF9UMF8zcXNYCQAAADFfRThfVDBfNHF0WA8AAAAy
+X05FX0dGUF9oaWdoXzFxdVgPAAAAMl9ORV9HRlBfaGlnaF8ycXZYDwAAADJfTkVfR0ZQX2hpZ2hf
+M3F3WA8AAAAyX05FX0dGUF9oaWdoXzRxeFgOAAAAM19ORV9HRlBfbG93XzFxeVgOAAAAM19ORV9H
+RlBfbG93XzJxelgOAAAAM19ORV9HRlBfbG93XzNxe1gOAAAAM19ORV9HRlBfbG93XzRxfFgOAAAA
+N19FOF9jb250cm9sXzFxfVgOAAAAN19FOF9jb250cm9sXzJxflgOAAAAN19FOF9jb250cm9sXzNx
+f1gOAAAAN19FOF9jb250cm9sXzRxgGVYEwAAAHNhdmVkV2lkZ2V0R2VvbWV0cnlxgUMyAdnQywAC
+AAAAAAK7AAAAgwAACLAAAAOKAAACuwAAAIMAAAiwAAADigAAAAAAAAAACRdxglgIAAAAc2dybmFM
+ZW5xg0sUWAwAAAB0cmlnZ2VyUmVhZHlxhH1xhVgFAAAAdHJpbTVxhmgDWA4AAAB1bm1hcHBlZFRv
+RmlsZXGHiVgGAAAAdXNlR3B1cYiJWAwAAAB1c2VTY2hlZHVsZXJxiYlYCwAAAF9fdmVyc2lvbl9f
+cYpLAXUu
 </properties>
 		<properties format="pickle" node_id="1">gAN9cQAoWBcAAABhZGRpdGlvbmFsUnJhUGFyYW1ldGVyc3EBWAAAAABxAlgMAAAAYWRqdXN0TWV0
 aG9kcQNoAlgSAAAAY29udHJvbEFyZWFWaXNpYmxlcQSIWAsAAABjb250cm9sR2VuZXEFaAJYCQAA
 AGNvbnRyb2xJZHEGXXEHKFgMAAAAM19ORV9HRlBfbG93cQhYBwAAADFfRThfVDBxCWVYDAAAAGNv
-bnRyb2xTZ3JuYXEKaAJYCgAAAGNvdW50VGFibGVxC2gCWAkAAABkYXkwTGFiZWxxDGgCWA4AAABl
-eHBvcnRHcmFwaGljc3ENiVgNAAAAZ2VuZUxmY01ldGhvZHEOWAYAAABtZWRpYW5xD1gUAAAAZ2Vu
-ZVRlc3RGZHJUaHJlc2hvbGRxEEc/0AAAAAAAAFgVAAAAaW5wdXRDb25uZWN0aW9uc1N0b3JlcRF9
-cRJYCgAAAGNvdW50VGFibGVxE11xFEsCYXNYBwAAAGl0ZXJhdGVxFYhYDwAAAGl0ZXJhdGVTZXR0
-aW5nc3EWfXEXKFgNAAAAaXRlcmFibGVBdHRyc3EYXXEZKFgLAAAAdHJlYXRtZW50SWRxGlgJAAAA
-Y29udHJvbElkcRtYDAAAAG91dHB1dFByZWZpeHEcZVgEAAAAZGF0YXEdY2NvbGxlY3Rpb25zCk9y
-ZGVyZWREaWN0CnEeKVJxHyhYCwAAAHRyZWF0bWVudElkcSB9cSEoWAkAAABncm91cFNpemVxIlgB
-AAAAMXEjWAcAAAB0aHJlYWRzcSRoI1gDAAAAcmFtcSVYAQAAADBxJnVYCQAAAGNvbnRyb2xJZHEn
-fXEoKGgiaCNoJGgjaCVoJnVYDAAAAG91dHB1dFByZWZpeHEpfXEqKGgiaCNoJGgjaCVoJnV1WA0A
-AABpdGVyYXRlZEF0dHJzcStdcSwoaCBoJ2gpZVgIAAAAbldvcmtlcnNxLUsBdVgHAAAAa2VlcFRt
-cHEuiVgIAAAAbldvcmtlcnNxL0sBWBAAAABub3JtQ291bnRzVG9GaWxlcTCJWAoAAABub3JtTWV0
-aG9kcTFoAlgOAAAAb3B0aW9uc0NoZWNrZWRxMn1xMyhYCgAAAG5vcm1NZXRob2RxNIlYDAAAAGNv
-bnRyb2xTZ3JuYXE1iVgLAAAAY29udHJvbEdlbmVxNolYCwAAAHNhbXBsZUxhYmVscTeJWAwAAABv
-dXRwdXRQcmVmaXhxOIhYDgAAAHVubWFwcGVkVG9GaWxlcTmJWAcAAABrZWVwVG1wcTqJWAYAAABm
-YXN0cTJxO4lYCQAAAGNvdW50UGFpcnE8iVgFAAAAdHJpbTVxPYlYCAAAAHNncm5hTGVucT6JWAYA
-AABjb3VudE5xP4lYEQAAAHJldmVyc2VDb21wbGVtZW50cUCJWAkAAABwZGZSZXBvcnRxQYlYCQAA
-AGRheTBMYWJlbHFCiVgJAAAAY29udHJvbElkcUOIWAYAAABwYWlyZWRxRIlYFAAAAGdlbmVUZXN0
-RmRyVGhyZXNob2xkcUWJWAwAAABhZGp1c3RNZXRob2RxRolYGQAAAHZhcmlhbmNlRXN0aW1hdGlv
-blNhbXBsZXNxR4lYDAAAAHNvcnRDcml0ZXJpYXFIiVgKAAAAcmVtb3ZlWmVyb3FJiVgTAAAAcmVt
-b3ZlWmVyb1RocmVzaG9sZHFKiVgNAAAAZ2VuZUxmY01ldGhvZHFLiVgQAAAAbm9ybUNvdW50c1Rv
-RmlsZXFMiVgIAAAAc2tpcEdlbmVxTYlYFwAAAGFkZGl0aW9uYWxScmFQYXJhbWV0ZXJzcU6JdVgJ
-AAAAb3V0cHV0RGlycU9YHQAAAC9kYXRhL291dHB1dHMvbWFnZWNrX3Rlc3Rfb3V0cVBYDAAAAG91
-dHB1dFByZWZpeHFRXXFSKFgJAAAATkVfc2NyZWVucVNYCQAAAEU4X3NjcmVlbnFUZVgGAAAAcGFp
-cmVkcVWJWAkAAABwZGZSZXBvcnRxVolYCgAAAHJlbW92ZVplcm9xV1gEAAAAYm90aHFYWBMAAABy
-ZW1vdmVaZXJvVGhyZXNob2xkcVlLAFgGAAAAcmVwZWF0cVqJWAcAAABydW5Nb2RlcVtLAlgLAAAA
-cnVuVHJpZ2dlcnNxXF1xXVgKAAAAY291bnRUYWJsZXFeYVgTAAAAc2F2ZWRXaWRnZXRHZW9tZXRy
-eXFfQzIB2dDLAAIAAAAAAjwAAAFqAAAGZgAAA3oAAAI8AAABggAABmYAAAN3AAAAAAAAAAAJF3Fg
-WAgAAABza2lwR2VuZXFhaAJYDAAAAHNvcnRDcml0ZXJpYXFiWAMAAABuZWdxY1gLAAAAdHJlYXRt
-ZW50SWRxZF1xZShYDQAAADJfTkVfR0ZQX2hpZ2hxZlgMAAAAN19FOF9jb250cm9scWdlWAwAAAB0
-cmlnZ2VyUmVhZHlxaH1xaWheiXNYBgAAAHVzZUdwdXFqiVgMAAAAdXNlU2NoZWR1bGVycWuJWBkA
-AAB2YXJpYW5jZUVzdGltYXRpb25TYW1wbGVzcWxoAlgLAAAAX192ZXJzaW9uX19xbUsBdS4=
+bnRyb2xTZ3JuYXEKaAJYCgAAAGNvdW50VGFibGVxC1ghAAAAL2RhdGEvb3V0cHV0cy9jb21iaW5l
+ZF9jb3VudHMudHh0cQxYCQAAAGRheTBMYWJlbHENaAJYDgAAAGV4cG9ydEdyYXBoaWNzcQ6JWA0A
+AABnZW5lTGZjTWV0aG9kcQ9YBgAAAG1lZGlhbnEQWBQAAABnZW5lVGVzdEZkclRocmVzaG9sZHER
+Rz/QAAAAAAAAWBUAAABpbnB1dENvbm5lY3Rpb25zU3RvcmVxEn1xE1gKAAAAY291bnRUYWJsZXEU
+XXEVSwJhc1gHAAAAaXRlcmF0ZXEWiFgPAAAAaXRlcmF0ZVNldHRpbmdzcRd9cRgoWA0AAABpdGVy
+YWJsZUF0dHJzcRldcRooWAsAAAB0cmVhdG1lbnRJZHEbWAkAAABjb250cm9sSWRxHFgMAAAAb3V0
+cHV0UHJlZml4cR1lWAQAAABkYXRhcR5jY29sbGVjdGlvbnMKT3JkZXJlZERpY3QKcR8pUnEgKFgL
+AAAAdHJlYXRtZW50SWRxIX1xIihYCQAAAGdyb3VwU2l6ZXEjWAEAAAAxcSRYBwAAAHRocmVhZHNx
+JWgkWAMAAAByYW1xJlgBAAAAMHEndVgJAAAAY29udHJvbElkcSh9cSkoaCNoJGglaCRoJmgndVgM
+AAAAb3V0cHV0UHJlZml4cSp9cSsoaCNoJGglaCRoJmgndXVYDQAAAGl0ZXJhdGVkQXR0cnNxLF1x
+LShoIWgoaCplWAgAAABuV29ya2Vyc3EuSwF1WAcAAABrZWVwVG1wcS+JWAgAAABuV29ya2Vyc3Ew
+SwFYEAAAAG5vcm1Db3VudHNUb0ZpbGVxMYlYCgAAAG5vcm1NZXRob2RxMmgCWA4AAABvcHRpb25z
+Q2hlY2tlZHEzfXE0KFgKAAAAbm9ybU1ldGhvZHE1iVgMAAAAY29udHJvbFNncm5hcTaJWAsAAABj
+b250cm9sR2VuZXE3iVgLAAAAc2FtcGxlTGFiZWxxOIlYDAAAAG91dHB1dFByZWZpeHE5iFgOAAAA
+dW5tYXBwZWRUb0ZpbGVxOolYBwAAAGtlZXBUbXBxO4lYBgAAAGZhc3RxMnE8iVgJAAAAY291bnRQ
+YWlycT2JWAUAAAB0cmltNXE+iVgIAAAAc2dybmFMZW5xP4lYBgAAAGNvdW50TnFAiVgRAAAAcmV2
+ZXJzZUNvbXBsZW1lbnRxQYlYCQAAAHBkZlJlcG9ydHFCiVgJAAAAZGF5MExhYmVscUOJWAYAAABw
+YWlyZWRxRIlYFAAAAGdlbmVUZXN0RmRyVGhyZXNob2xkcUWJWAwAAABhZGp1c3RNZXRob2RxRolY
+GQAAAHZhcmlhbmNlRXN0aW1hdGlvblNhbXBsZXNxR4lYDAAAAHNvcnRDcml0ZXJpYXFIiVgKAAAA
+cmVtb3ZlWmVyb3FJiVgTAAAAcmVtb3ZlWmVyb1RocmVzaG9sZHFKiVgNAAAAZ2VuZUxmY01ldGhv
+ZHFLiVgQAAAAbm9ybUNvdW50c1RvRmlsZXFMiVgIAAAAc2tpcEdlbmVxTYlYFwAAAGFkZGl0aW9u
+YWxScmFQYXJhbWV0ZXJzcU6JdVgJAAAAb3V0cHV0RGlycU9YHQAAAC9kYXRhL291dHB1dHMvbWFn
+ZWNrX3Rlc3Rfb3V0cVBYDAAAAG91dHB1dFByZWZpeHFRXXFSKFgJAAAATkVfc2NyZWVucVNYCQAA
+AEU4X3NjcmVlbnFUZVgGAAAAcGFpcmVkcVWJWAkAAABwZGZSZXBvcnRxVolYCgAAAHJlbW92ZVpl
+cm9xV1gEAAAAYm90aHFYWBMAAAByZW1vdmVaZXJvVGhyZXNob2xkcVlLAFgGAAAAcmVwZWF0cVqJ
+WAcAAABydW5Nb2RlcVtLAlgLAAAAcnVuVHJpZ2dlcnNxXF1xXVgKAAAAY291bnRUYWJsZXFeYVgT
+AAAAc2F2ZWRXaWRnZXRHZW9tZXRyeXFfQzIB2dDLAAIAAAAAAjwAAAFqAAAGZgAAA3oAAAI8AAAB
+ggAABmYAAAN3AAAAAAAAAAAJF3FgWAgAAABza2lwR2VuZXFhaAJYDAAAAHNvcnRDcml0ZXJpYXFi
+WAMAAABuZWdxY1gLAAAAdHJlYXRtZW50SWRxZF1xZShYDQAAADJfTkVfR0ZQX2hpZ2hxZlgMAAAA
+N19FOF9jb250cm9scWdlWAwAAAB0cmlnZ2VyUmVhZHlxaH1xaWheiXNYBgAAAHVzZUdwdXFqiVgM
+AAAAdXNlU2NoZWR1bGVycWuJWBkAAAB2YXJpYW5jZUVzdGltYXRpb25TYW1wbGVzcWxoAlgLAAAA
+X192ZXJzaW9uX19xbUsBdS4=
 </properties>
-		<properties format="literal" node_id="2">{'controlAreaVisible': True, 'exportGraphics': False, 'inputConnectionsStore': {'inputDir': [1]}, 'inputDir': '', 'iterate': False, 'iterateSettings': {'iterableAttrs': ['sampleNames'], 'nWorkers': 1}, 'nWorkers': 1, 'optionsChecked': {'countTable': False, 'normMethod': False, 'controlSgrna': False, 'controlGene': False, 'sampleLabel': False, 'outputPrefix': False, 'unmappedToFile': False, 'keepTmp': False, 'fastq2': False, 'countPair': False, 'trim5': False, 'sgrnaLen': False, 'countN': False, 'reverseComplement': False, 'pdfReport': False, 'day0Label': False}, 'outputFile': '/data/outputs/combined_counts.txt', 'repeat': False, 'runMode': 2, 'runTriggers': ['inputDir'], 'sampleNames': ['1_E8_T0', '2_NE_GFP_high', '3_NE_GFP_low', '7_E8_control'], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x02\x87\x00\x00\x01N\x00\x00\x05\xf0\x00\x00\x02\xd1\x00\x00\x02\x87\x00\x00\x01f\x00\x00\x05\xf0\x00\x00\x02\xce\x00\x00\x00\x00\x00\x00\x00\x00\t\x17', 'triggerReady': {'inputDir': False}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
+		<properties format="literal" node_id="2">{'controlAreaVisible': True, 'exportGraphics': False, 'inputConnectionsStore': {'inputDir': [1]}, 'inputDir': '/data/outputs/mageck_count_out', 'iterate': False, 'iterateSettings': {'iterableAttrs': ['sampleNames'], 'nWorkers': 1}, 'nWorkers': 1, 'optionsChecked': {'countTable': False, 'normMethod': False, 'controlSgrna': False, 'controlGene': False, 'sampleLabel': False, 'outputPrefix': False, 'unmappedToFile': False, 'keepTmp': False, 'fastq2': False, 'countPair': False, 'trim5': False, 'sgrnaLen': False, 'countN': False, 'reverseComplement': False, 'pdfReport': False, 'day0Label': False}, 'outputFile': '/data/outputs/combined_counts.txt', 'repeat': False, 'runMode': 2, 'runTriggers': ['inputDir'], 'sampleNames': ['1_E8_T0', '2_NE_GFP_high', '3_NE_GFP_low', '7_E8_control'], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x02\x87\x00\x00\x016\x00\x00\x07\xac\x00\x00\x03\xe7\x00\x00\x02\x87\x00\x00\x01N\x00\x00\x07\xac\x00\x00\x03\xe4\x00\x00\x00\x00\x00\x00\x00\x00\t\x17', 'statsFile': '/data/outputs/combined_counts_stats.txt', 'triggerReady': {'inputDir': False}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
 		<properties format="pickle" node_id="3">gAN9cQAoWAkAAABPdXRwdXREaXJxAVgTAAAAL2RhdGEvb3V0cHV0cy9mYXN0cXECWAkAAABhY2Nl
 c3Npb25xA05YBwAAAGFsaWduZWRxBIlYDQAAAGFsaWduZWRSZWdpb25xBVgAAAAAcQZYBQAAAGJ6
 aXAycQeJWAQAAABjbGlwcQiJWBIAAABjb250cm9sQXJlYVZpc2libGVxCYhYCwAAAGRlZmxpbmVR
@@ -169,5 +172,23 @@ Y2hlZHVsZXJxlYlYCQAAAHVzZVN0ZG91dHGWiVgHAAAAdmVyYm9zZXGXiVgLAAAAX192ZXJzaW9u
 X19xmEsBdS4=
 </properties>
 		<properties format="literal" node_id="4">{'controlAreaVisible': True, 'exportGraphics': True, 'inputConnectionsStore': {}, 'inputFile': '/data/reference_files/workflow_samplesheet.gnumeric', 'iterate': False, 'iterateSettings': {'iterableAttrs': [], 'nWorkers': 1}, 'nWorkers': 1, 'optionsChecked': {'inputFile': True}, 'repeat': False, 'runMode': 0, 'runTriggers': [], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x04\x1d\x00\x00\x01\xdf\x00\x00\x07V\x00\x00\x02\xe1\x00\x00\x04\x1d\x00\x00\x01\xdf\x00\x00\x07V\x00\x00\x02\xe1\x00\x00\x00\x00\x00\x00\x00\x00\t\x17', 'triggerReady': {}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
+		<properties format="pickle" node_id="5">gAN9cQAoWBIAAABjb250cm9sQXJlYVZpc2libGVxAYhYDgAAAGV4cG9ydEdyYXBoaWNzcQKJWBUA
+AABpbnB1dENvbm5lY3Rpb25zU3RvcmVxA31xBChYCAAAAGlucHV0RGlycQVdcQZLA2FYBgAAAHNj
+cmVlbnEHXXEISwNhdVgIAAAAaW5wdXREaXJxCVgdAAAAL2RhdGEvb3V0cHV0cy9tYWdlY2tfdGVz
+dF9vdXRxClgHAAAAaXRlcmF0ZXELiFgPAAAAaXRlcmF0ZVNldHRpbmdzcQx9cQ0oWA0AAABpdGVy
+YWJsZUF0dHJzcQ5dcQ9YBgAAAHNjcmVlbnEQYVgIAAAAbldvcmtlcnNxEUsBWAQAAABkYXRhcRJj
+Y29sbGVjdGlvbnMKT3JkZXJlZERpY3QKcRMpUnEUWAYAAABzY3JlZW5xFX1xFihYCQAAAGdyb3Vw
+U2l6ZXEXWAEAAAAxcRhYBwAAAHRocmVhZHNxGWgYWAMAAAByYW1xGlgBAAAAMHEbdXNYDQAAAGl0
+ZXJhdGVkQXR0cnNxHF1xHWgVYXVYCAAAAG5Xb3JrZXJzcR5LAVgOAAAAb3B0aW9uc0NoZWNrZWRx
+H31xIChYDgAAAHlBeGlzVGhyZXNob2xkcSGIWA4AAAB4QXhpc1RocmVzaG9sZHEiiHVYCQAAAG91
+dHB1dERpcnEjWCoAAAAvZGF0YS9vdXRwdXRzL21pbmltdW1fcHZhbF9mZHJfdm9sY2Fub19vdXRx
+JFgGAAAAcmVwZWF0cSWJWAcAAABydW5Nb2RlcSZLAlgLAAAAcnVuVHJpZ2dlcnNxJ11xKChYCAAA
+AGlucHV0RGlycSlYBgAAAHNjcmVlbnEqZVgTAAAAc2F2ZWRXaWRnZXRHZW9tZXRyeXErQzIB2dDL
+AAIAAAAABB0AAAHHAAAIDwAABBMAAAQdAAAB3wAACA8AAAQQAAAAAAAAAAAJF3EsWAYAAABzY3Jl
+ZW5xLV1xLihYCQAAAE5FX3NjcmVlbnEvWAkAAABFOF9zY3JlZW5xMGVYDAAAAHRyaWdnZXJSZWFk
+eXExfXEyKGgpiWgqiXVYBgAAAHVzZUdwdXEziVgMAAAAdXNlU2NoZWR1bGVycTSJWAcAAAB2b2xj
+YW5vcTWIWA4AAAB4QXhpc1RocmVzaG9sZHE2Rz/wAAAAAAAAWA4AAAB5QXhpc1RocmVzaG9sZHE3
+Rz+pmZmZmZmaWAsAAABfX3ZlcnNpb25fX3E4SwF1Lg==
+</properties>
 	</node_properties>
 </scheme>

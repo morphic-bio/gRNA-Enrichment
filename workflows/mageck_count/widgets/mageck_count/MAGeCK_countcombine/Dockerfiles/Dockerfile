@@ -5,3 +5,5 @@ RUN pip install pandas
 
 ADD combine_counts.py .
 RUN chmod +x combine_counts.py
+ADD sample_count_stats.py .
+RUN chmod +x sample_count_stats.py

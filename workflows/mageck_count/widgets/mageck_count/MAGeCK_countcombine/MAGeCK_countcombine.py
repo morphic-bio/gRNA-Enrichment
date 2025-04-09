@@ -19,7 +19,7 @@ class OWMAGeCK_countcombine(OWBwBWidget):
     want_main_area = False
     docker_image_name = "brycenofu/mageck-countcombine"
     docker_image_tag = "latest"
-    inputs = [("Trigger",str,"handleInputsTrigger"),("inputDir",str,"handleInputsinputDir"),("outputFile",str,"handleInputsoutputFile"),("sampleNames",str,"handleInputssampleNames")]
+    inputs = [("Trigger",str,"handleInputsTrigger"),("inputDir",str,"handleInputsinputDir"),("outputFile",str,"handleInputsoutputFile"),("sampleNames",str,"handleInputssampleNames"),("statsFile",str,"handleInputsstatsFile")]
     outputs = [("outputFile",str),("sampleNames",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
@@ -31,6 +31,7 @@ class OWMAGeCK_countcombine(OWBwBWidget):
     inputDir=pset(None)
     outputFile=pset(None)
     sampleNames=pset([])
+    statsFile=pset(None)
     def __init__(self):
         super().__init__(self.docker_image_name, self.docker_image_tag)
         with open(getJsonName(__file__,"MAGeCK_countcombine")) as f:
@@ -57,6 +58,11 @@ class OWMAGeCK_countcombine(OWBwBWidget):
     def handleInputssampleNames(self, value, *args):
         if args and len(args) > 0: 
             self.handleInputs("sampleNames", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputsstatsFile(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("statsFile", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):

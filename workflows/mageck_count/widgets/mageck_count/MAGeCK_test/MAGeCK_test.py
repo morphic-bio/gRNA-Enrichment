@@ -20,7 +20,7 @@ class OWMAGeCK_test(OWBwBWidget):
     docker_image_name = "brycenofu/mageck"
     docker_image_tag = "0.5.9.5_debian13"
     inputs = [("outputDir",str,"handleInputsoutputDir"),("countTable",str,"handleInputscountTable"),("treatmentId",str,"handleInputstreatmentId"),("day0Label",str,"handleInputsday0Label"),("outputPrefix",str,"handleInputsoutputPrefix")]
-    outputs = [("outputDir",str)]
+    outputs = [("outputDir",str),("outputPrefix",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
     exportGraphics=pset(False)
@@ -88,3 +88,7 @@ class OWMAGeCK_test(OWBwBWidget):
         if hasattr(self,"outputDir"):
             outputValue=getattr(self,"outputDir")
         self.send("outputDir", outputValue)
+        outputValue=None
+        if hasattr(self,"outputPrefix"):
+            outputValue=getattr(self,"outputPrefix")
+        self.send("outputPrefix", outputValue)
