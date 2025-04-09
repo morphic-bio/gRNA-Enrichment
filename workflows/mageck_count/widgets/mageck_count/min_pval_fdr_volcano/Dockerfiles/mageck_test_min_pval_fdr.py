@@ -61,16 +61,16 @@ def get_min_and_fdr(input_dir: str, output_dir: str, screen: str):
     mageck_test_gene_summary_filtered_min_fdr = mageck_test_gene_summary_filtered[['id', 'num', 'lfc', 'min_fdr']]
 
     # Sort the dataframes by the minimum p-value and FDR values followed by the log fold change followed by the gene id
-    mageck_test_gene_summary_filtered_min_pval = mageck_test_gene_summary_filtered_min_pval.sort_values(by=['min_p-value', 'lfc', 'id'], ascending=[True, True, True])
-    mageck_test_gene_summary_filtered_min_fdr = mageck_test_gene_summary_filtered_min_fdr.sort_values(by=['min_fdr', 'lfc', 'id'], ascending=[True, True, True])
+    mageck_test_gene_summary_filtered_min_pval_sorted = mageck_test_gene_summary_filtered_min_pval.sort_values(by=['min_p-value', 'lfc', 'id'], ascending=[True, True, True])
+    mageck_test_gene_summary_filtered_min_fdr_sorted = mageck_test_gene_summary_filtered_min_fdr.sort_values(by=['min_fdr', 'lfc', 'id'], ascending=[True, True, True])
 
     # Paths to output files
     min_pval_file = os.path.join(output_dir, f"{screen}_gene_min_pval_summary.txt")
     min_fdr_file = os.path.join(output_dir, f"{screen}_gene_min_fdr_summary.txt")
 
     # Export the filtered dataframes to .txt files
-    mageck_test_gene_summary_filtered_min_pval.to_csv(min_pval_file, sep='\t', index=False)
-    mageck_test_gene_summary_filtered_min_fdr.to_csv(min_fdr_file, sep='\t', index=False)
+    mageck_test_gene_summary_filtered_min_pval_sorted.to_csv(min_pval_file, sep='\t', index=False)
+    mageck_test_gene_summary_filtered_min_fdr_sorted.to_csv(min_fdr_file, sep='\t', index=False)
 
     print("Exported minimum p-value summary to:", min_pval_file)
     print("Exported minimum FDR summary to:", min_fdr_file)
