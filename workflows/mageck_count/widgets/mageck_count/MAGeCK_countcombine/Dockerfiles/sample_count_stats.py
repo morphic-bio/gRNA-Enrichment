@@ -32,7 +32,7 @@ def sample_count_stats(input_dir: str, output_stats: str, sample_names: list[str
 
     """
     
-    summary_dfs = pd.DataFrame(columns=["Sample", "SampleReads", "SampleMapped", "SamplePercentMapped", "TotalsgRNAs", "SampleZerocounts", "SampleAverageGiniIndex"])
+    summary_dfs = pd.DataFrame(columns=["Sample", "SampleReads", "SampleMapped", "SamplePercentMapped", "TotalsgRNAs"])
 
     for sample in sample_names:
         file_pattern = f"{input_dir}/*{sample}*.countsummary.txt"
@@ -43,10 +43,11 @@ def sample_count_stats(input_dir: str, output_stats: str, sample_names: list[str
             "Sample": sample,
             "SampleReads": combined_df["Reads"].sum(),
             "SampleMapped": combined_df["Mapped"].sum(),
-            "SamplePercentMapped": combined_df["Mapped"].sum() / combined_df["Reads"].sum(),
-            "TotalsgRNAs": combined_df["TotalsgRNAs"].iloc[0],
-            "SampleZerocounts": combined_df["Zerocounts"].sum(),
-            "SampleAverageGiniIndex": combined_df["GiniIndex"].mean()
+            "SamplePercentMapped": combined_df["Mapped"].sum() * 100 / combined_df["Reads"].sum(),
+            "TotalsgRNAs": combined_df["TotalsgRNAs"].iloc[0]
+            # TODO: RECALCULATE ZEROCOUNTS AND GINI INDEX FROM THE COMBINED DATAFRAME
+            # "SampleZerocounts": combined_df["Zerocounts"].sum(),
+            # "SampleAverageGiniIndex": combined_df["GiniIndex"].mean()
         }, index=[sample])
 
         # Concatenate the new row to the summary dataframe
