@@ -122,7 +122,7 @@ def make_volcano_plots(pval_dataframe: pd.DataFrame,
     genomewideline_value = -np.log10(y_val_threshold),
     effect_size_line_width = 3,
     genomewideline_width = 2,
-    title = dict(text=f"{screen}Volcano Plot (min p-value)", xanchor='center', yanchor='top')
+    title = dict(text=f"{screen} Volcano Plot (min p-value)", xanchor='center', yanchor='top')
     )
 
     # Create the volcano plot for minimum FDR
