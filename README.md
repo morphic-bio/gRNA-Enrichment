@@ -1,7 +1,5 @@
 # gRNA-Enrichment
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/morphic-bio/gRNA-Enrichment)
-
 ## Overview
 
 This repository contains a [Biodepot-workflow-builder (Bwb)](https://github.com/BioDepot/BioDepot-workflow-builder) workflow to run `MAGeCK count` and a Jupyter Notebook for comparing the outputs of gene count table between samples from MSK (original data providers) and Bwb (reprocessed from the workflow). After obtaining counts, `MAGeCK test` executes gene rankings for provided screens. The final step takes `MAGeCK test` gene ranking outputs for each screen and get their minimum p-values and minimum FDR values, as well as create volcano plots from these minimum values.
